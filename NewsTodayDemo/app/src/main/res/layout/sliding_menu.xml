@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/mainBackground"
+    >
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+        android:id="@+id/linear_next"
+        >
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/phone1"
+            android:id="@+id/sliding_phone"
+            />
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/qq1"
+            android:id="@+id/sliding_qq"
+            />
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/weibo1"
+            android:id="@+id/sliding_wb"
+            />
+
+
+    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/logMath_sli"
+            android:text="更多的登陆方式"
+
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="50dp"
+
+            />
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/sliding_relative2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="5dp"
+            >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/qq1"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/sliding_qq_big"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户："
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:id="@+id/sliding_user_big"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="45dp"
+
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView_next"
+        ></ListView>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:id="@+id/sliding__radio_z"
+        >
+        <RadioButton
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:drawableTop="@mipmap/xiazai2"
+        android:text="下载"
+            android:gravity="center"
+            android:id="@+id/sliding__radio_xz"
+        />
+        <RadioButton
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/sun_normal"
+            android:text="日间"
+            android:gravity="center"
+            android:id="@+id/sliding__radio_ry"
+            />
+        <RadioButton
+            android:id="@+id/sliding__radio_sz"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@mipmap/shezhi"
+            android:text="设置"
+            android:gravity="center"
+            />
+    </RadioGroup>
+
+
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<WebView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:id="@+id/newsInfo_web"
+    android:gravity="center"
+    ></WebView>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#000"
+        android:gravity="center"
+        >
+
+        <ImageView
+
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/comment_video_normal"
+
+        />
+
+        <ImageView
+            android:id="@+id/xi_newsInfo"
+            android:layout_marginLeft="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/cang_select"
+            />
+        <ImageView
+            android:id="@+id/share_newsInfo"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/repost_video_normal"
+
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

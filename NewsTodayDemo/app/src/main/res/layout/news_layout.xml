@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/mainBackground"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#cb3131"
+        >
+
+<ImageView
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:id="@+id/tou_news"
+    android:src="@mipmap/mine_titlebar_normal"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+
+
+    />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:src="@mipmap/jrtt"
+           android:layout_marginLeft="120dp"
+            android:gravity="center"
+
+            />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shua_next"
+            android:layout_gravity="center"
+            android:layout_marginLeft="2dp"
+            android:src="@mipmap/refresh_lasttime_textpage_white"
+
+
+            />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/sou_news"
+            android:src="@mipmap/dynamic_titlebar_normal"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        >
+        <android.support.design.widget.TabLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="38dp"
+            app:tabIndicatorColor="#cb3131"
+            app:tabTextColor="#000"
+            app:tabSelectedTextColor="#cb3131"
+            android:id="@+id/tab_next"
+            ></android.support.design.widget.TabLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_next"
+            android:src="@mipmap/toast_keywords_add"
+            />
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager_next"
+        ></android.support.v4.view.ViewPager>
+</LinearLayout>
