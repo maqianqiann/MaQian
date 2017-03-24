@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amiao.bitmapimagelibary.BitmapUtils;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -49,6 +51,8 @@ public class NewsFragment extends Fragment {
     private String url;
     private String path;
     private List<NewsBean.ResultBean.DataBean> list;
+    private BitmapUtils butils;
+    private MyAdapter adapter;
 
     public void getUrl(String url){
         this.url=url;
@@ -61,6 +65,7 @@ public class NewsFragment extends Fragment {
         activity = (NewsActivity) getActivity();
         Bundle bundle = getArguments();
         path = bundle.getString("path");
+        butils = new BitmapUtils(activity);
         return view;
     }
 
@@ -117,52 +122,7 @@ public class NewsFragment extends Fragment {
                 startActivity(in);
             }
         });
-    }
-    //解析
-    private void getDatas() {
-        String url="http://ic.snssdk.com/2/article/v25/stream/?category=news_hot&count=20&min_behot_time=1457659116&bd_latitude=4.9E-324&bd_longitude=4.9E-324&bd_loc_time=1457672153&loc_mode=5&lac=4527&cid=28883&iid=3839760160&device_id=12246291682&ac=wifi&channel=baidu&aid=13&app_name=news_article&version_code=460&device_platform=android&device_type=iToolsAVM&os_api=19&os_version=4.4.4&uuid=352284045861006&openudid=84c1c7b192991cc6";
-        RequestParams params=new RequestParams(url);
-        x.http().get(params, new Callback.CacheCallback<String>() {
-            private  String result=null;
-            @Override
-            public void onSuccess(String result) {
-                if(result!=null){
-                    this.result=result;
-                }
-                //进行解析
-                Gson gson=new Gson();
-                NewsBean newsBean = gson.fromJson(result, NewsBean.class);
-             /*   List<NewsBean.DataBean> list = newsBean.getData();
-                xlv.setAdapter(new MyAdapter(list));
-                Log.i("xxx",list.toString());*/
-
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-
-                Toast.makeText(activity, "解析失败", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-
-            @Override
-            public boolean onCache(String result) {
-                this.result=result;
-                return true;
-            }
-        });
-
-    }
-
+    }//解析数据
     private void getDatas1(){
         AsyncHttpClient client=new AsyncHttpClient();
         client.get(activity, path, new TextHttpResponseHandler() {
@@ -176,12 +136,10 @@ public class NewsFragment extends Fragment {
                 Gson gson=new Gson();
              NewsBean newsBean = gson.fromJson(responseString, NewsBean.class);
                 list = newsBean.getResult().getData();
+                adapter = new MyAdapter(list);
+                xlv.setAdapter(adapter);
 
-
-                xlv.setAdapter(new MyAdapter(list));
-                Log.i("xxx", list.toString());
-
-            }
+              }
         });
     }
    //设置适配器
@@ -226,6 +184,7 @@ private class MyAdapter extends BaseAdapter {
                     holder1 = new ViewHolder1();
                     holder1.title1 = (TextView) convertView.findViewById(R.id.text_adapter_title1);
                     holder1.imageView1 = (ImageView) convertView.findViewById(R.id.image_adapter_im1);
+                    holder1.dis1= (ImageView) convertView.findViewById(R.id.type1_disLike);
                     convertView.setTag(holder1);
                     break;
                 case TYPE_2:
@@ -234,6 +193,8 @@ private class MyAdapter extends BaseAdapter {
                     holder2.title2 = (TextView) convertView.findViewById(R.id.text_adapter_title2);
                     holder2.imageView2 = (ImageView) convertView.findViewById(R.id.image_adapter_im2);
                     holder2.imageView21 = (ImageView) convertView.findViewById(R.id.image_adapter_im21);
+                    holder2.dis2= (ImageView) convertView.findViewById(R.id.type2_disLike);
+
                     convertView.setTag(holder2);
 
                     break;
@@ -244,6 +205,8 @@ private class MyAdapter extends BaseAdapter {
                     holder3.im1 = (ImageView) convertView.findViewById(R.id.image1_adapter_im3);
                     holder3.im2 = (ImageView) convertView.findViewById(R.id.image2_adapter_im3);
                     holder3.im3 = (ImageView) convertView.findViewById(R.id.image3_adapter_im3);
+                    holder3.dis3= (ImageView) convertView.findViewById(R.id.type3_disLike);
+
                     convertView.setTag(holder3);
 
 
@@ -270,15 +233,53 @@ private class MyAdapter extends BaseAdapter {
             case TYPE_1:
                 holder1.title1.setText(list.get(position).getTitle());
                 ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder1.imageView1);
-
+                holder1.dis1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                        final AlertDialog dialog = builder.create();
+                        View view2=View.inflate(activity,R.layout.dis_layout,null);
+                        dialog.setView(view2);
+                        dialog.show();
+                        TextView dis_dialog= (TextView) view2.findViewById(R.id.dis_dialog);
+                        dis_dialog.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                list.remove(position);
+                                adapter.notifyDataSetChanged();
+                                Toast.makeText(activity, "以后减少此类消息的推送", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                });
                 break;
             case TYPE_2:
                 holder2.title2.setText(list.get(position).getTitle());
                 ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder2.imageView2);
                 ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s02(), holder2.imageView21);
+                holder2.dis2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                        final AlertDialog dialog = builder.create();
+                        View view2=View.inflate(activity,R.layout.dis_layout,null);
+                        dialog.setView(view2);
+                        dialog.show();
+                        TextView dis_dialog= (TextView) view2.findViewById(R.id.dis_dialog);
+                        dis_dialog.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                list.remove(position);
+                                adapter.notifyDataSetChanged();
+                                Toast.makeText(activity, "以后减少此类消息的推送", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                });
 
-
-                break;
+                 break;
             case TYPE_3:
                 holder3.title3.setText(list.get(position).getTitle());
                 ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder3.im1);
@@ -296,12 +297,29 @@ private class MyAdapter extends BaseAdapter {
                         activity.startActivity(in);
                     }
                 });
-
+                holder3.dis3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                        final AlertDialog dialog = builder.create();
+                        View view2=View.inflate(activity,R.layout.dis_layout,null);
+                        dialog.setView(view2);
+                        dialog.show();
+                        TextView dis_dialog= (TextView) view2.findViewById(R.id.dis_dialog);
+                        dis_dialog.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                               list.remove(position);
+                               adapter.notifyDataSetChanged();
+                               Toast.makeText(activity, "以后减少此类消息的推送", Toast.LENGTH_SHORT).show();
+                               dialog.dismiss();
+                            }
+                        });
+                    }
+                });
                 break;
         }
-
-
-        return convertView;
+     return convertView;
     }
 
     @Override
@@ -320,32 +338,31 @@ private class MyAdapter extends BaseAdapter {
             return TYPE_3;
         }
         return TYPE_1;
-
-
     }
 }
 
     class ViewHolder1{
         TextView title1;
         ImageView imageView1;
-
-
-    }
+        ImageView dis1;
+  }
     class ViewHolder2{
-
         TextView title2;
         ImageView imageView21;
         ImageView imageView2;
-
-
-    }
+        ImageView dis2;
+}
     class ViewHolder3{
         TextView title3;
         TextView content3;
         ImageView im1;
         ImageView im2;
         ImageView im3;
+        ImageView dis3;
     }
+
+
+
     //写个获得系统时间的方法
     public void getTimeDate(){
         long millis = System.currentTimeMillis();
@@ -353,7 +370,5 @@ private class MyAdapter extends BaseAdapter {
         Date date=new Date(millis);
         String time = sdf.format(date);
         xlv.setRefreshTime(time);
-
-
-    }
+ }
 }

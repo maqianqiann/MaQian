@@ -77,4 +77,6 @@ public class GridDao {
         String sql="delete from contain where _id="+position;
         db.execSQL(sql);
     }
+
+
 }

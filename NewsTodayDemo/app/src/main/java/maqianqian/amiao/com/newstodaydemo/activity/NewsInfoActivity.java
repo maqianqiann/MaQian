@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tencent.connect.share.QQShare;
 import com.tencent.connect.share.QzoneShare;
@@ -20,7 +21,10 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 
+import java.util.ArrayList;
+
 import maqianqian.amiao.com.newstodaydemo.R;
+import maqianqian.amiao.com.newstodaydemo.bean.ContainBean;
 import maqianqian.amiao.com.newstodaydemo.dao.GridDao;
 
 /**
@@ -38,6 +42,7 @@ public class NewsInfoActivity extends AppCompatActivity {
     private static final String APP_ID = "1105602574"; //获取的APPID
     private ShareUiListener mIUiListener;
     private Tencent mTencent;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +60,24 @@ public class NewsInfoActivity extends AppCompatActivity {
         im.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                im.setSelected(true);
-                dao.addContain(title, image, url);
+                boolean flag=true;
+
+                ArrayList<ContainBean> list = dao.queryContain();
+
+                for(ContainBean cb:list){
+                    if(title.equals(cb.title)){
+                      flag=false;
+                    }
+                }
+
+                if(flag){
+                    dao.addContain(title, image, url);
+                    im.setSelected(true);
+                    Toast.makeText(NewsInfoActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(NewsInfoActivity.this, "已经收藏过", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         WebView web= (WebView) findViewById(R.id.newsInfo_web);

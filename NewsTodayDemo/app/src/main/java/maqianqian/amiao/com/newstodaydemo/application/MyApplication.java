@@ -8,6 +8,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import org.xutils.x;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by lenovo on 2017/3/13.
  */
@@ -22,6 +24,8 @@ public class MyApplication extends Application {
                 .memoryCacheExtraOptions(480,800)
                 .build();
         ImageLoader.getInstance().init(mic);
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 
 }

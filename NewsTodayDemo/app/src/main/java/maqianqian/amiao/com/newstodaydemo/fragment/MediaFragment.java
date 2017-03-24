@@ -3,6 +3,7 @@ package maqianqian.amiao.com.newstodaydemo.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +32,14 @@ import com.tencent.tauth.UiError;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import cz.msebera.android.httpclient.Header;
@@ -228,6 +236,7 @@ public class MediaFragment extends Fragment {
                 holder.title= (TextView) convertView.findViewById(R.id.text_media_title);
                 holder.jcv= (JCVideoPlayerStandard) convertView.findViewById(R.id.jcv_media);
                 holder.share= (ImageView) convertView.findViewById(R.id.image_media_share);
+                holder.xz= (ImageView) convertView.findViewById(R.id.image_media_xz);
                 convertView.setTag(holder);
             }else{
                 holder= (ViewHolder) convertView.getTag();
@@ -281,9 +290,9 @@ public class MediaFragment extends Fragment {
                             int QzoneType = QzoneShare.SHARE_TO_QZONE_TYPE_NO_TYPE;
                             Bundle params = new Bundle();
                             params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneType);
-                            params.putString(QzoneShare.SHARE_TO_QQ_TITLE, list.get(position-1).getTitle());//分享标题
-                            params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, list.get(position-1).getM3u8_url());//分享的内容摘要
-                            params.putString(QzoneShare.SHARE_TO_QQ_TARGET_URL, list.get(position-1).getM3u8_url());//分享的链接
+                            params.putString(QzoneShare.SHARE_TO_QQ_TITLE, list.get(position).getTitle());//分享标题
+                            params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, list.get(position).getM3u8_url());//分享的内容摘要
+                            params.putString(QzoneShare.SHARE_TO_QQ_TARGET_URL, list.get(position).getM3u8_url());//分享的链接
                             //分享的图片, 以ArrayList<String>的类型传入，以便支持多张图片（注：图片最多支持9张图片，多余的图片会被丢弃）
                             ArrayList<String> imageUrls = new ArrayList<String>();
                             imageUrls.add(list.get(position-1).getCover());//添加一个图片地址
@@ -295,7 +304,86 @@ public class MediaFragment extends Fragment {
 
                   }
             });
+            holder.xz.setOnClickListener(new View.OnClickListener() {
 
+                private ProgressBar pb;
+
+                @Override
+                public void onClick(View v) {
+                    //弹出一个对话框
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    final AlertDialog dialog = builder.create();
+                    View view=View.inflate(activity,R.layout.progress_layout,null);
+                    dialog.setView(view);
+                    dialog.show();
+                    pb = (ProgressBar) view.findViewById(R.id.progress_p);
+                    final TextView zero= (TextView) view.findViewById(R.id.zero_progress);
+                    TextView sure= (TextView) view.findViewById(R.id.sure_progress);
+                    view.findViewById(R.id.no_progress).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                    //设置点击事件
+                    sure.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //设置请求的参数
+                            RequestParams params=new RequestParams(list.get(position).getMp4_url());
+                            //设置保存的文件夹
+                            params.setSaveFilePath(Environment.getExternalStorageDirectory()+"/"+list.get(position).getTitle()+".mp4");
+                            params.setUseCookie(true);
+                            params.setAutoResume(true);
+                            params.setAutoRename(false);
+                            //发送请求
+                            x.http().get(params, new Callback.ProgressCallback<File>() {
+
+                                @Override
+                                public void onSuccess(File result) {
+                                    Toast.makeText(activity, "下载成功", Toast.LENGTH_SHORT).show();
+                                     dialog.dismiss();
+                                }
+
+                                @Override
+                                public void onError(Throwable ex, boolean isOnCallback) {
+
+                                }
+                                @Override
+                                public void onCancelled(CancelledException cex) {
+
+                                }
+
+                                @Override
+                                public void onFinished() {
+
+                                }
+
+                                @Override
+                                public void onWaiting() {
+
+                                }
+
+                                @Override
+                                public void onStarted() {
+
+                                }
+
+                                @Override
+                                public void onLoading(long total, long current, boolean isDownloading) {
+                                    pb.setMax((int)total);
+                                    pb.setProgress((int)current);
+                                    String time = getTime(total);
+                                    zero.setText(time);
+
+
+
+                                }
+                            });
+                        }
+                    });
+                }
+            });
             //直接进入全屏
             //holder.jcv.startFullscreen(context, JCVideoPlayerStandard.class,list.get(position).getMp4_url(),"");
             //模拟用户点击开始按钮，NORMAL状态下点击开始播放视频，播放中点击暂停视频
@@ -308,6 +396,7 @@ public class MediaFragment extends Fragment {
             JCVideoPlayerStandard jcv;
             TextView title;
             ImageView share;
+            ImageView xz;
         }
 
     }
@@ -350,5 +439,12 @@ public class MediaFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
+    }
+
+    public String getTime(long current){
+        SimpleDateFormat format=new SimpleDateFormat("mm:ss");
+        Date date=new Date(current);
+        String s = format.format(date);
+        return s;
     }
 }

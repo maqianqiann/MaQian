@@ -39,16 +39,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="头条新闻"
+            android:text="热点新闻"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             />
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="90评论"
+            android:layout_weight="1"
             />
 
+        <ImageView
+            android:layout_width="27dp"
+            android:layout_height="22dp"
+            android:id="@+id/type2_disLike"
+            android:src="@mipmap/add_textpage_normal"
 
+            />
     </LinearLayout>
 
 </LinearLayout>
