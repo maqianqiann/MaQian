@@ -45,10 +45,21 @@ public class GridDao {
         String sql="insert into title(name) values(?)";
         db.execSQL(sql,new Object[]{name});
      }
+    public void add1(String name){
+        String sql="insert into titlemore(name) values(?)";
+        db.execSQL(sql,new Object[]{name});
+    }
+
     public void delete(String name){
         String sql="delete from titlemore where name=?";
         db.execSQL(sql,new String[]{name});
      }
+    public void delete1(String name){
+        String sql="delete from title where name=?";
+        db.execSQL(sql,new String[]{name});
+    }
+
+
 
     public void addContain(String title,String image,String url){
         String sql="insert into contain(title,image,url) values(?,?,?)";

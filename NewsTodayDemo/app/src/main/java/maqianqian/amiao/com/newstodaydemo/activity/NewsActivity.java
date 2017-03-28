@@ -60,11 +60,13 @@ import cz.msebera.android.httpclient.Header;
 import maqianqian.amiao.com.newstodaydemo.R;
 import maqianqian.amiao.com.newstodaydemo.adapter.GridViewAdapter;
 import maqianqian.amiao.com.newstodaydemo.adapter.MenuAdapter;
+import maqianqian.amiao.com.newstodaydemo.application.MyApplication;
 import maqianqian.amiao.com.newstodaydemo.bean.Title;
 import maqianqian.amiao.com.newstodaydemo.dao.GridDao;
 import maqianqian.amiao.com.newstodaydemo.fragment.MediaFragment;
 import maqianqian.amiao.com.newstodaydemo.fragment.NewsFragment;
 import maqianqian.amiao.com.newstodaydemo.utils.ImageUtils;
+import maqianqian.amiao.com.newstodaydemo.utils.IntentUtils;
 import maqianqian.amiao.com.newstodaydemo.utils.Utils;
 
 import static android.provider.UserDictionary.Words.APP_ID;
@@ -124,6 +126,27 @@ public class NewsActivity extends AppCompatActivity implements RadioGroup.OnChec
             setTheme(theme);
 
         }
+        boolean b = IntentUtils.getIntent(NewsActivity.this);
+        if(!b){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(NewsActivity.this);
+            builder.setTitle("是否通过移动数据访问？");
+            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    builder.create().dismiss();
+                }
+            });
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //通过隐式开启
+                    Intent intent = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
+                    startActivity(intent);
+                }
+            });
+            builder.create().show();
+       }
+
         setContentView(R.layout.news_layout);
         SMSSDK.initSDK(NewsActivity.this,"1c11a2b17ace0","09776530f44c4c55fbf4f04ba861d501");
         mTencent = Tencent.createInstance(APP_ID,NewsActivity.this.getApplicationContext());
@@ -255,6 +278,38 @@ public class NewsActivity extends AppCompatActivity implements RadioGroup.OnChec
                 //进行跳转
                 Intent in=new Intent(NewsActivity.this,LoadActvity.class);
                 startActivity(in);
+            }
+        });
+
+        sliding__radio_sz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //设置字体的大小
+                String str[] =new String[]{"小","中","大"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(NewsActivity.this);
+                builder.setTitle("请选择设置的字体的大小");
+                builder.setIcon(R.mipmap.icon);
+                builder.setSingleChoiceItems(str, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case 0:
+                                MyApplication.info=0;
+                                dialog.dismiss();
+                                   break;
+                            case 1:
+                                MyApplication.info=1;
+                                dialog.dismiss();
+                                break;
+                            case 2:
+                                MyApplication.info=2;
+                                dialog.dismiss();
+                                break;
+
+                        }
+                    }
+                });
+                builder.create().show();
             }
         });
 

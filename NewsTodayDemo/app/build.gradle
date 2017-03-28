@@ -65,5 +65,5 @@ dependencies {
     compile files('libs/uk-co-senab-photoview.jar')
     compile 'cn.jiguang.sdk:jpush:3.0.3'
     compile 'cn.jiguang.sdk:jcore:1.1.1'
-    compile project(':bitmapimagelibary')
+
 }

@@ -10,21 +10,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amiao.bitmapimagelibary.BitmapUtils;
+
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,7 +35,10 @@ import maqianqian.amiao.com.newstodaydemo.R;
 import maqianqian.amiao.com.newstodaydemo.activity.ImageActvity;
 import maqianqian.amiao.com.newstodaydemo.activity.NewsActivity;
 import maqianqian.amiao.com.newstodaydemo.activity.NewsInfoActivity;
+import maqianqian.amiao.com.newstodaydemo.application.MyApplication;
 import maqianqian.amiao.com.newstodaydemo.bean.NewsBean;
+import maqianqian.amiao.com.newstodaydemo.utils.ImageUtils;
+import maqianqian.amiao.com.newstodaydemo.utils.WenUtils;
 
 /**
  * Created by lenovo on 2017/3/13.
@@ -48,25 +49,26 @@ public class NewsFragment extends Fragment {
     private NewsActivity activity;
     private View view;
     private XListView xlv;
-    private String url;
     private String path;
     private List<NewsBean.ResultBean.DataBean> list;
-    private BitmapUtils butils;
+
     private MyAdapter adapter;
 
-    public void getUrl(String url){
-        this.url=url;
-    }
-
-    @Nullable
+  @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragnews_layout,null);
-        activity = (NewsActivity) getActivity();
+      if(view==null){
+          view = inflater.inflate(R.layout.fragnews_layout,null);
+      }
+      ViewGroup group = (ViewGroup) view.getParent();
+      if(group!=null){
+          group.removeView(view);
+  }
+      activity = (NewsActivity) getActivity();
         Bundle bundle = getArguments();
         path = bundle.getString("path");
-        butils = new BitmapUtils(activity);
-        return view;
+
+         return view;
     }
 
     @Override
@@ -231,6 +233,14 @@ private class MyAdapter extends BaseAdapter {
         }
         switch (type) {
             case TYPE_1:
+                if(MyApplication.info==0){
+                    holder1.title1.setTextSize(WenUtils.px2dip(15));
+                }else if(MyApplication.info==1){
+                    holder1.title1.setTextSize(WenUtils.px2dip(20));
+                }else{
+                    holder1.title1.setTextSize(WenUtils.px2dip(30));
+                }
+
                 holder1.title1.setText(list.get(position).getTitle());
                 ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder1.imageView1);
                 holder1.dis1.setOnClickListener(new View.OnClickListener() {
@@ -255,9 +265,19 @@ private class MyAdapter extends BaseAdapter {
                 });
                 break;
             case TYPE_2:
+                if(MyApplication.info==0){
+
+                    holder2.title2.setTextSize(WenUtils.px2dip(15));
+                }else if(MyApplication.info==1){
+
+                    holder2.title2.setTextSize(WenUtils.px2dip(20));
+                }else{
+
+                    holder2.title2.setTextSize(WenUtils.px2dip(30));
+                }
                 holder2.title2.setText(list.get(position).getTitle());
-                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder2.imageView2);
-                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s02(), holder2.imageView21);
+                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder2.imageView2, ImageUtils.getDisPlay());
+                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s02(), holder2.imageView21,ImageUtils.getDisPlay());
                 holder2.dis2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -281,10 +301,20 @@ private class MyAdapter extends BaseAdapter {
 
                  break;
             case TYPE_3:
+                if(MyApplication.info==0){
+
+                    holder3.title3.setTextSize(WenUtils.px2dip(15));
+                }else if(MyApplication.info==1){
+
+                    holder3.title3.setTextSize(WenUtils.px2dip(20));
+                }else{
+
+                    holder3.title3.setTextSize(WenUtils.px2dip(30));
+                }
                 holder3.title3.setText(list.get(position).getTitle());
-                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder3.im1);
-                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s02(), holder3.im2);
-                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s03(), holder3.im3);
+                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s(), holder3.im1,ImageUtils.getDisPlay());
+                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s02(), holder3.im2,ImageUtils.getDisPlay());
+                ImageLoader.getInstance().displayImage(list.get(position).getThumbnail_pic_s03(), holder3.im3,ImageUtils.getDisPlay());
                 //设置点击事件
                 holder3.im1.setOnClickListener(new View.OnClickListener() {
                     @Override

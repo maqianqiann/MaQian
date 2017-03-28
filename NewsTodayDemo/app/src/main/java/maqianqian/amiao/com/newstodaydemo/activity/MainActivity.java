@@ -38,4 +38,5 @@ public class MainActivity extends AppCompatActivity {
         ImageView im= (ImageView) findViewById(R.id.welcome_activity);
         timer.schedule(task,1000,1000);
     }
+
 }

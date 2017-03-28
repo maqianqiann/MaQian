@@ -52,6 +52,7 @@
         <activity android:name=".activity.ContainActivity"/>
         <activity android:name=".activity.ImageActvity"/>
         <activity android:name=".activity.LoadActvity"/>
+        <activity android:name=".activity.GuangActivity"/>
     </application>
 
 </manifest>

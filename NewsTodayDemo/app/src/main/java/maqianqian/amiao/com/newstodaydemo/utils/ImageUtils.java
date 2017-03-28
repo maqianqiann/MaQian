@@ -1,5 +1,7 @@
 package maqianqian.amiao.com.newstodaydemo.utils;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+
 import org.xutils.image.ImageOptions;
 
 /**
@@ -15,5 +17,12 @@ public class ImageUtils {
                 .build();
 
           return options;
+    }
+    public static DisplayImageOptions getDisPlay(){
+        DisplayImageOptions options=new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .build();
+        return options;
     }
 }

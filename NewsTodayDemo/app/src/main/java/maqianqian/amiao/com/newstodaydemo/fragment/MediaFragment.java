@@ -70,6 +70,7 @@ public class MediaFragment extends Fragment {
     private static final String APP_ID = "1105602574"; //获取的APPID
     private ShareUiListener mIUiListener;
     private Tencent mTencent;
+    int s=0;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -373,9 +374,9 @@ public class MediaFragment extends Fragment {
                                 public void onLoading(long total, long current, boolean isDownloading) {
                                     pb.setMax((int)total);
                                     pb.setProgress((int)current);
-                                    String time = getTime(total);
+                                    int i = (int) ((current * 100)/total);
+                                    String time = String.valueOf(i) + "%";
                                     zero.setText(time);
-
 
 
                                 }
@@ -441,9 +442,9 @@ public class MediaFragment extends Fragment {
 
     }
 
-    public String getTime(long current){
+    public String getTime(int time){
         SimpleDateFormat format=new SimpleDateFormat("mm:ss");
-        Date date=new Date(current);
+        Date date=new Date(time);
         String s = format.format(date);
         return s;
     }
