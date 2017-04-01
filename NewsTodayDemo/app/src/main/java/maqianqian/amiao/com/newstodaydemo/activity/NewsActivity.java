@@ -18,6 +18,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -32,6 +33,7 @@ import android.widget.Toast;
 
 
 import com.google.gson.Gson;
+import com.jaeger.library.StatusBarUtil;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.TextHttpResponseHandler;
@@ -76,7 +78,7 @@ import static android.provider.UserDictionary.Words.APP_ID;
  */
 
 public class NewsActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
-
+    private long exitTime = 0;
     private static final String  TAG = "NewsActivity";
     private ViewPager viewPager;
     private TabLayout tab;
@@ -148,6 +150,13 @@ public class NewsActivity extends AppCompatActivity implements RadioGroup.OnChec
        }
 
         setContentView(R.layout.news_layout);
+        //设置沉浸式的颜色
+       StatusBarUtil.setColor(NewsActivity.this,getResources().getColor(R.color.bar),0);
+       // 设置状态栏全透明
+      //  StatusBarUtil.setTransparent(NewsActivity.this);
+        StatusBarUtil.setTranslucent(NewsActivity.this,112);
+
+
         SMSSDK.initSDK(NewsActivity.this,"1c11a2b17ace0","09776530f44c4c55fbf4f04ba861d501");
         mTencent = Tencent.createInstance(APP_ID,NewsActivity.this.getApplicationContext());
         dao = new GridDao(NewsActivity.this);
@@ -167,6 +176,12 @@ public class NewsActivity extends AppCompatActivity implements RadioGroup.OnChec
         ImageView sou_new= (ImageView) findViewById(R.id.sou_news);
         //查询数据库中的对象
         stringList = (ArrayList<String>) dao.query();
+        ImageView im= (ImageView)findViewById(R.id.image_fn);
+        boolean b = IntentUtils.getIntent(this);
+        if(b){
+            im.setVisibility(View.INVISIBLE);
+        }
+
         //将路径放入集合中
         String url1="http://v.juhe.cn/toutiao/index?type=shehui&key=32b9973df2e6ee0c2bf094b61c7d7844";
         String url2="http://v.juhe.cn/toutiao/index?type=redian&key=32b9973df2e6ee0c2bf094b61c7d7844";
@@ -651,6 +666,22 @@ private class MyAdapter extends FragmentPagerAdapter{
             // 拿着imagePath上传了
             // ...
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() ==
+                KeyEvent.ACTION_DOWN){
+            if((System.currentTimeMillis()-exitTime) > 2000){
+                Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                        Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

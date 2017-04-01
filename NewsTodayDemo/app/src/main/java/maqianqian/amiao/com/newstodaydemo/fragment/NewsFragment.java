@@ -19,6 +19,14 @@ import android.widget.Toast;
 
 
 import com.google.gson.Gson;
+import com.liaoinstan.springview.container.AcFunFooter;
+import com.liaoinstan.springview.container.AcFunHeader;
+import com.liaoinstan.springview.container.AliFooter;
+import com.liaoinstan.springview.container.AliHeader;
+import com.liaoinstan.springview.container.DefaultHeader;
+import com.liaoinstan.springview.container.RotationFooter;
+import com.liaoinstan.springview.container.RotationHeader;
+import com.liaoinstan.springview.widget.SpringView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -38,6 +46,7 @@ import maqianqian.amiao.com.newstodaydemo.activity.NewsInfoActivity;
 import maqianqian.amiao.com.newstodaydemo.application.MyApplication;
 import maqianqian.amiao.com.newstodaydemo.bean.NewsBean;
 import maqianqian.amiao.com.newstodaydemo.utils.ImageUtils;
+import maqianqian.amiao.com.newstodaydemo.utils.IntentUtils;
 import maqianqian.amiao.com.newstodaydemo.utils.WenUtils;
 
 /**
@@ -53,8 +62,10 @@ public class NewsFragment extends Fragment {
     private List<NewsBean.ResultBean.DataBean> list;
 
     private MyAdapter adapter;
+    private SpringView sp;
+    Handler handler=new Handler();
 
-  @Nullable
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       if(view==null){
@@ -74,6 +85,34 @@ public class NewsFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        sp = (SpringView) view.findViewById(R.id.spring);
+
+        sp.setType(SpringView.Type.FOLLOW);
+        sp.setFooter(new RotationHeader(activity));
+        sp.setHeader(new RotationFooter(activity));
+        sp.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+               handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        sp.onFinishFreshAndLoad();
+                    }
+                },2000);
+            }
+
+            @Override
+            public void onLoadmore() {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        sp.onFinishFreshAndLoad();
+                    }
+                },2000);
+            }
+        });
+
+
         xlv = (XListView) view.findViewById(R.id.xlv_fn);
         //设置时间的方法
         getTimeDate();

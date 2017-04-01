@@ -439,7 +439,7 @@ public class MediaFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-
+        JCVideoPlayer.releaseAllVideos();
     }
 
     public String getTime(int time){

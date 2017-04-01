@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. 日间模式-->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -11,7 +11,7 @@
 
     </style>
     <!-- Base application theme. 夜间模式-->
-    <style name="NightAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="NightAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/nightColorPrimary</item>
         <item name="colorPrimaryDark">@color/nightColorPrimaryDark</item>

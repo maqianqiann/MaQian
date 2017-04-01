@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaeger.library.StatusBarUtil;
 import com.tencent.connect.share.QQShare;
 import com.tencent.connect.share.QzoneShare;
 import com.tencent.tauth.IUiListener;
@@ -48,10 +49,15 @@ public class NewsInfoActivity extends AppCompatActivity {
     final int RIGHT = 0;
     private GestureDetector gestureDetector;
     final int LEFT = 1;
+    private WebView web;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newsinfo_layout);
+        StatusBarUtil.setColor(NewsInfoActivity.this,getResources().getColor(R.color.news),0);
+
+
         gestureDetector=new GestureDetector(NewsInfoActivity.this,onGestureListener);
         //加载第三方的平台
         mTencent=mTencent.createInstance(APP_ID,NewsInfoActivity.this.getApplicationContext());
@@ -86,7 +92,7 @@ public class NewsInfoActivity extends AppCompatActivity {
                 }
             }
         });
-        WebView web= (WebView) findViewById(R.id.newsInfo_web);
+        web = (WebView) findViewById(R.id.newsInfo_web);
         web.loadUrl(url);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,20 +159,14 @@ public class NewsInfoActivity extends AppCompatActivity {
     private GestureDetector.OnGestureListener onGestureListener=new GestureDetector.SimpleOnGestureListener(){
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            //e1就是初始状态的MotionEvent对象，e2就是滑动了过后的MotionEvent对象
-            //velocityX和velocityY就是滑动的速率
+
             float x = e2.getX() - e1.getX();//滑动后的x值减去滑动前的x值 就是滑动的横向水平距离(x)
             float y = e2.getY() - e1.getY();//滑动后的y值减去滑动前的y值 就是滑动的纵向垂直距离(y)
-            Log.w("tag", "x>" + x);
-            Log.w("tag", "y>" + y);
-            Log.w("tag", "velocityX>" + velocityX);
-            Log.w("tag", "velocityY>" + velocityY);
-            //如果滑动的横向距离大于100，表明是右滑了，那么就执行下面的方法，可以是关闭当前的activity
+
             if (x > 100) {
                 doResult(RIGHT);
                 Log.w("tag", "RIGHT>" + x);
             }
-            //如果滑动的横向距离大于100，表明是左滑了(因为左滑为负数，所以距离大于100就是x值小于-100)
             if (x < -100) {
                 Log.w("tag", "LEFT>" + x);
                 doResult(LEFT);
@@ -183,6 +183,7 @@ public class NewsInfoActivity extends AppCompatActivity {
                 break;
             case MotionEvent.ACTION_MOVE:
                 System.out.println(" ACTION_MOVE");//手指正在屏幕上滑动
+                overridePendingTransition(R.anim.anim_normal,R.anim.anim_move);
                 break;
             case MotionEvent.ACTION_UP:
                 System.out.println(" ACTION_UP");//手指从屏幕抬起了
@@ -190,8 +191,19 @@ public class NewsInfoActivity extends AppCompatActivity {
             default:
                 break;
         }
-        return gestureDetector.onTouchEvent(event);
+     return gestureDetector.onTouchEvent(event);
     }
+
+
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {    //注意这里不能用ONTOUCHEVENT方法，不然无效的
+        gestureDetector.onTouchEvent(ev);
+        web.onTouchEvent(ev);//这几行代码也要执行，将webview载入MotionEvent对象一下，况且用载入把，不知道用什么表述合适
+        return super.dispatchTouchEvent(ev);
+    }
+
+
 
     public void doResult(int action) {
 
@@ -205,8 +217,7 @@ public class NewsInfoActivity extends AppCompatActivity {
                 break;
         }
     }
-
-    private class ShareUiListener implements IUiListener{
+   private class ShareUiListener implements IUiListener{
 
         @Override
         public void onComplete(Object o) {

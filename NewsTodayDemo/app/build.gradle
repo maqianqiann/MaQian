@@ -65,5 +65,8 @@ dependencies {
     compile files('libs/uk-co-senab-photoview.jar')
     compile 'cn.jiguang.sdk:jpush:3.0.3'
     compile 'cn.jiguang.sdk:jcore:1.1.1'
+    compile 'com.jaeger.statusbaruitl:library:1.0.0'
+    compile 'com.liaoinstan.springview:library:1.2.6'
+
 
 }
