@@ -11,5 +11,7 @@
         android:layout_height="match_parent"
         app:iconMargin="20dp"
         app:iconWidth="30dp"
-        app:iconSrc="@drawable/ic_camera_enhance_black_24dp"/>
+        app:iconSrc="@drawable/ic_camera_enhance_black_24dp"
+
+        />
 </RelativeLayout>
