@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测评记录"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="#87ec44"
+
+        />
+    <com.handmark.pulltorefresh.library.PullToRefreshExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/pull_list"
+
+/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="台旧机器"
+    android:layout_marginLeft="10dp"
+    android:id="@+id/num_main"
+    android:textSize="20sp"
+
+    />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="价格￥"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/price_main"
+            android:textSize="20sp"
+
+            />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回收手机"
+            android:background="#4cdf36"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
+</LinearLayout>

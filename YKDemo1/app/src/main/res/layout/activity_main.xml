@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+<com.youth.banner.Banner
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/banner_main"
+    ></com.youth.banner.Banner>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="品牌专场"
+        android:gravity="center"
+        android:textSize="18sp"
+        />
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:numColumns="2"
+        android:gravity="center"
+        android:id="@+id/gridView_main_p"
+        ></GridView>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="商品秀"
+        android:gravity="center"
+        android:textSize="18sp"
+        />
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:id="@+id/gridView_main_x"
+        ></GridView>
+</LinearLayout>

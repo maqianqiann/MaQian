@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\gitProject\\MaQian\\YKDemo7\\pullToRefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\delete_btn.xml",
+        "source": "E:\\gitProject\\MaQian\\YKDemo7\\pullToRefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\layout\\delete_btn.xml"
+    },
+    {
+        "merged": "E:\\gitProject\\MaQian\\YKDemo7\\pullToRefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
+        "source": "E:\\gitProject\\MaQian\\YKDemo7\\pullToRefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_horizontal.xml"
+    },
+    {
+        "merged": "E:\\gitProject\\MaQian\\YKDemo7\\pullToRefreshlibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_vertical.xml",
+        "source": "E:\\gitProject\\MaQian\\YKDemo7\\pullToRefreshlibrary\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_vertical.xml"
+    }
+]

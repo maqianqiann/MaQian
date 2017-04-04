@@ -1,0 +1,517 @@
+﻿
+{
+    "errNo": 0,
+    "errstr": "success",
+    "data": {
+        "adInfo": {
+            "adUrl": "",
+            "adImg": "",
+            "adTitle": ""
+        },
+        "bannerList": [
+            {
+                "bannerUrl": "http://www.zybang.com/practice/activity/sxhytmposter?fr=appmore&from=banner",
+                "bannerImage": "http://img.zuoyebang.cc/zyb_c27f1269945cb5373870b30edacb587f.jpg",
+                "urlType": 0,
+                "courseId": 0
+            },
+            {
+                "bannerUrl": "http://www.zybang.com/course/activity/passingthetorch?from=banner",
+                "bannerImage": "http://img.zuoyebang.cc/zyb_ca18238f79d99c500cce85d4d6268922.jpg",
+                "urlType": 0,
+                "courseId": 0
+            },
+            {
+                "bannerUrl": "http://www.zybang.com/course/activity/scholarship?from=banner",
+                "bannerImage": "http://img.zuoyebang.cc/zyb_1994b316278868c12cdfe572a5ccbfcf.jpg",
+                "urlType": 0,
+                "courseId": 0
+            },
+            {
+                "bannerUrl": "http://www.zybang.com/course/activity/planningexperienceclass?grade=1&from=banner",
+                "bannerImage": "http://img.zuoyebang.cc/zyb_ca206ec7506e95061a97a8e92553a476.jpg",
+                "urlType": 0,
+                "courseId": 0
+            },
+            {
+                "bannerUrl": "http://www.zybang.com/course/activity/nationaldaywarmup?from=banner",
+                "bannerImage": "http://img.zuoyebang.cc/zyb_e71635e0622bb76ccdc96171d2ac3030.jpg",
+                "urlType": 0,
+                "courseId": 0
+            }
+        ],
+        "banList": [
+            {
+                "banPrice": 9900,
+                "banStudentCnt": 7442,
+                "banOnlineTime": "2016年10月-2017年1月",
+                "seasonName": "秋季期末冲刺班",
+                "tagName": "长期班",
+                "seasonId": 31,
+                "avatarList": "http://img.zuoyebang.cc/zyb_c9574b968277a6f3fc8b1d448a0a611f.jpg",
+                "registerStatus": 2,
+                "registerToStartTime": "",
+                "registerToStopTime": "",
+                "stopViewTime": 0
+            }
+        ],
+        "hasCoupon": 0,
+        "couponInfo": {
+            "codeName": "",
+            "discount": 0,
+            "discountText": "",
+            "unit": "",
+            "type": "",
+            "desc": "",
+            "endTime": "",
+            "rules": [
+                ""
+            ]
+        },
+        "teacherInfo": {
+            "teacherNum": 0,
+            "courseNum": 0,
+            "desc": [
+                ""
+            ],
+            "allTeacherList": [
+                {
+                    "teacherUid": 0,
+                    "teacherName": ""
+                }
+            ]
+        },
+        "nearCourse": {
+            "type": 0,
+            "contentText": "",
+            "courseId": 0,
+            "lessonId": 0
+        },
+        "hasMore": 1,
+        "zhuanList": [
+            {
+                "courseId": 7241,
+                "courseName": "四年级数学花园探秘网考考前辅导班",
+                "grade": "四年级",
+                "subject": "数学",
+                "subjectOne": "数",
+                "tagName": "",
+                "onlineTime": "11月22日-11月24日 2次课",
+                "stopViewTime": 0,
+                "teacherId": 2161866114,
+                "teacherName": "谷运增",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_691fefd3a9ff77f0a2c7cb9e4f7e68ec.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "",
+                "price": 500,
+                "registerStop": 1,
+                "registerStudentNum": 1008,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 1,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "13天",
+                "registerStartTime": 1477008000,
+                "registerStopTime": 1479992400,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2161866114,
+                        "teacherName": "谷运增",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_691fefd3a9ff77f0a2c7cb9e4f7e68ec.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 7283,
+                "courseName": "[ 军事科技 ] 海上巨无霸——航空母舰",
+                "grade": "小学",
+                "subject": "科学",
+                "subjectOne": "科",
+                "tagName": "",
+                "onlineTime": "11月11日 18:50-19:35",
+                "stopViewTime": 0,
+                "teacherId": 2152155793,
+                "teacherName": "刘京林",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_9153cea6410103f7c31b78c2d80afb9f.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_75a0525d2b2d67f88906fc5286116151.jpg",
+                "price": 300,
+                "registerStop": 1,
+                "registerStudentNum": 410,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "9小时51分",
+                "registerStartTime": 1477094400,
+                "registerStopTime": 1478864100,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2152155793,
+                        "teacherName": "刘京林",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_9153cea6410103f7c31b78c2d80afb9f.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 7258,
+                "courseName": "四年级阅读专项突破班——联系上下文解释词语（重开）",
+                "grade": "四年级",
+                "subject": "语文",
+                "subjectOne": "语",
+                "tagName": "体验课",
+                "onlineTime": "11月11日 19:00-19:45",
+                "stopViewTime": 0,
+                "teacherId": 2136864193,
+                "teacherName": "小鱼",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_a551d69629235035f2e6eb134f8bb947.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_e2030a32167fbfe6094a3849e0861d2a.jpg",
+                "price": 100,
+                "registerStop": 1,
+                "registerStudentNum": 3202,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "10小时1分",
+                "registerStartTime": 1477008000,
+                "registerStopTime": 1478864700,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2136864193,
+                        "teacherName": "小鱼",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_a551d69629235035f2e6eb134f8bb947.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 7364,
+                "courseName": "满分作文通关——审题准、得分稳",
+                "grade": "小学",
+                "subject": "语文",
+                "subjectOne": "语",
+                "tagName": "",
+                "onlineTime": "11月11日 19:00-19:45",
+                "stopViewTime": 0,
+                "teacherId": 2153868699,
+                "teacherName": "楠楠",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_1ccb6ee6276dbe9d6c76ef78f802946d.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_0e18d966022568ef9250f054474edd54.jpg",
+                "price": 300,
+                "registerStop": 1,
+                "registerStudentNum": 704,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "10小时1分",
+                "registerStartTime": 1477094400,
+                "registerStopTime": 1478864700,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2153868699,
+                        "teacherName": "楠楠",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_1ccb6ee6276dbe9d6c76ef78f802946d.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 6869,
+                "courseName": "[ 应用题专题 ] 追及问题进阶",
+                "grade": "小学",
+                "subject": "数学",
+                "subjectOne": "数",
+                "tagName": "",
+                "onlineTime": "11月11日 19:00-19:45",
+                "stopViewTime": 0,
+                "teacherId": 2140327332,
+                "teacherName": "况洁",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_264ecb907936079c00f66daecdb1f59b.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "",
+                "price": 300,
+                "registerStop": 1,
+                "registerStudentNum": 487,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "10小时1分",
+                "registerStartTime": 1476576000,
+                "registerStopTime": 1478864700,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2140327332,
+                        "teacherName": "况洁",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_264ecb907936079c00f66daecdb1f59b.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 6852,
+                "courseName": "从“更美”到“最美”看形容词",
+                "grade": "小学",
+                "subject": "英语",
+                "subjectOne": "英",
+                "tagName": "",
+                "onlineTime": "11月11日 19:00-19:45",
+                "stopViewTime": 0,
+                "teacherId": 2149445706,
+                "teacherName": "Lily",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_af673177d1d55d54c3a481128511a13e.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_edfb20ad4169308d3a28b9061bfb8eee.jpg",
+                "price": 300,
+                "registerStop": 1,
+                "registerStudentNum": 361,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "10小时1分",
+                "registerStartTime": 1476576000,
+                "registerStopTime": 1478864700,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2149445706,
+                        "teacherName": "Lily",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_af673177d1d55d54c3a481128511a13e.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 5914,
+                "courseName": "故事系列：巨大的萝卜 （2）",
+                "grade": "小学",
+                "subject": "英语",
+                "subjectOne": "英",
+                "tagName": "",
+                "onlineTime": "11月12日 09:30-10:15",
+                "stopViewTime": 0,
+                "teacherId": 2154589126,
+                "teacherName": "Jessica",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_7eecb1b90ec6530b3e60b1a5eb00b049.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_6e248bb9494a30e108de17a6b35660e0.jpg",
+                "price": 100,
+                "registerStop": 1,
+                "registerStudentNum": 1987,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "1天",
+                "registerStartTime": 1474848000,
+                "registerStopTime": 1478916900,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2154589126,
+                        "teacherName": "Jessica",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_7eecb1b90ec6530b3e60b1a5eb00b049.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 6863,
+                "courseName": "[ 应用题专题 ] 方阵问题（一）",
+                "grade": "小学",
+                "subject": "数学",
+                "subjectOne": "数",
+                "tagName": "",
+                "onlineTime": "11月12日 10:00-10:45",
+                "stopViewTime": 0,
+                "teacherId": 2140327332,
+                "teacherName": "况洁",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_264ecb907936079c00f66daecdb1f59b.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "",
+                "price": 300,
+                "registerStop": 1,
+                "registerStudentNum": 290,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "1天",
+                "registerStartTime": 1476576000,
+                "registerStopTime": 1478918700,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2140327332,
+                        "teacherName": "况洁",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_264ecb907936079c00f66daecdb1f59b.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 8051,
+                "courseName": "[ 经典重开 ] 鲸鱼猎手--巨齿鲨",
+                "grade": "小学",
+                "subject": "科学",
+                "subjectOne": "科",
+                "tagName": "",
+                "onlineTime": "11月12日 18:00-18:45",
+                "stopViewTime": 0,
+                "teacherId": 2152155793,
+                "teacherName": "刘京林",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_9153cea6410103f7c31b78c2d80afb9f.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_75a0525d2b2d67f88906fc5286116151.jpg",
+                "price": 300,
+                "registerStop": 1,
+                "registerStudentNum": 357,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "1天",
+                "registerStartTime": 1478304000,
+                "registerStopTime": 1478947500,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2152155793,
+                        "teacherName": "刘京林",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_9153cea6410103f7c31b78c2d80afb9f.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 7662,
+                "courseName": "妙趣横生作文——细节描写打造个性作文",
+                "grade": "小学",
+                "subject": "语文",
+                "subjectOne": "语",
+                "tagName": "体验课",
+                "onlineTime": "11月11日 20:00-20:45",
+                "stopViewTime": 0,
+                "teacherId": 2150947830,
+                "teacherName": "阿紫",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_d7adfe822980b48c42be238bad379357.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_3d5fee328ebe2a17e81cd0637c20fc39.jpg",
+                "price": 100,
+                "registerStop": 1,
+                "registerStudentNum": 3491,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "11小时1分",
+                "registerStartTime": 1477872000,
+                "registerStopTime": 1478868300,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2150947830,
+                        "teacherName": "阿紫",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_d7adfe822980b48c42be238bad379357.jpg@f_jpg,h_105"
+                    }
+                ]
+            },
+            {
+                "courseId": 7304,
+                "courseName": "满分作文通关——名师手把手教你运用写作素材",
+                "grade": "小学",
+                "subject": "语文",
+                "subjectOne": "语",
+                "tagName": "",
+                "onlineTime": "11月10日-11月24日 4次课",
+                "stopViewTime": 0,
+                "teacherId": 2150947830,
+                "teacherName": "阿紫",
+                "teacherAvatar": "http://img.zuoyebang.cc/zyb_d7adfe822980b48c42be238bad379357.jpg@f_jpg,h_105",
+                "teacherHalfavatar": "http://img.zuoyebang.cc/zyb_3d5fee328ebe2a17e81cd0637c20fc39.jpg",
+                "price": 1200,
+                "registerStop": 1,
+                "registerStudentNum": 769,
+                "courseType": 0,
+                "discount": [],
+                "feature": "",
+                "teacherExt": "",
+                "isOnline": 0,
+                "isHighquality": 0,
+                "isReg": 0,
+                "ifFull": 0,
+                "isStop": 0,
+                "registerStatus": 1,
+                "registerToStartTime": "",
+                "registerToStopTime": "13天",
+                "registerStartTime": 1477094400,
+                "registerStopTime": 1479988800,
+                "teacherInfoList": [
+                    {
+                        "teacherUid": 2150947830,
+                        "teacherName": "阿紫",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_d7adfe822980b48c42be238bad379357.jpg@f_jpg,h_105"
+                    },
+                    {
+                        "teacherUid": 2153868699,
+                        "teacherName": "楠楠",
+                        "teacherAvatar": "http://img.zuoyebang.cc/zyb_1ccb6ee6276dbe9d6c76ef78f802946d.jpg@f_jpg,h_105"
+                    }
+                ]
+            }
+        ]
+    }
+}
