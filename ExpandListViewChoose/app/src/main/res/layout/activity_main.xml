@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    >
+ <com.amiao.test.view.CustomExpandableListView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:id="@+id/exp_lv"
+     ></com.amiao.test.view.CustomExpandableListView>
+
+</ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+      android:layout_marginLeft="10dp"
+        >
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/check_selector"
+            android:id="@+id/cb_main"
+            />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全选"
+            android:textSize="18sp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0个"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/num"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0元"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/memory"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
